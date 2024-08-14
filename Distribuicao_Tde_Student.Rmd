@@ -6,7 +6,7 @@ Qual a probabilidae de ser maior que 80
 ```{r}
 pt(1.5, 8, lower.tail = F)
 ```
-Somatoria
+Somatória
 ```{r}
 pt(1.5,8) + pt(1.5, 8, lower.tail = F)
 ```
