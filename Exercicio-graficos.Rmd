@@ -1,0 +1,39 @@
+```{r}
+dados = read.csv("dados.csv", sep = ";", na.strings = "", stringsAsFactors = T)
+dados
+```
+```{r}
+summary(dados$CODIGO)
+```
+```{r}
+tabela1 = table(dados$MUNICIPIO)
+tabela1
+```
+
+```{r}
+densidade = density(dados$CODIGO)
+```
+
+```{r}
+hist(dados$CODIGO, main = NULL, xlab = NULL, ylab = NULL)
+par(new=T)
+plot(densidade)
+
+```
+```{r}
+agregado = aggregate(. ~ MUNICIPIO, data = dados,sum)
+agregado
+```
+```{r}
+repetidos = dados[duplicated(dados$CODIGO), ]
+repetidos
+```
+```{r}
+dados = dados[! dados$CODIGO %in% c(repetidos$CODIGO), ]
+repetidos
+```
+
+
+
+
+

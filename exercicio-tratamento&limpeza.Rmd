@@ -1,0 +1,32 @@
+
+```{r}
+tempo = read.csv("tempo.csv", sep = ";", na.strings = "", stringsAsFactors = T)
+print.AsIs(tempo)
+
+```
+```{r}
+summary(tempo$Aparencia)
+tempo[tempo$Aparencia == "menos", ]$Aparencia = "sol"
+tempo$Aparencia = factor(tempo$Aparencia)
+```
+
+```{r}
+summary(tempo$Vento)
+tempo[is.na(tempo$Vento), ]$Vento = "FALSO"
+```
+
+```{r}
+summary(tempo$Temperatura)
+median(tempo$Temperatura)
+tempo[tempo$Temperatura > 131, ]$Temperatura
+```
+```{r}
+summary(tempo$Umidade)
+median(tempo$Umidade, na.rm = T)
+tempo[is.na(tempo$Umidade), ]$Umidade = median(tempo$Umidade, na.rm = T)
+tempo[tempo$Umidade > 100, ]$Umidade = median(tempo$Umidade)
+```
+```{r}
+summary(tempo$Jogar)
+```
+

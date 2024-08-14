@@ -1,0 +1,48 @@
+```{r}
+trees
+hist(trees$Height)
+```
+```{r}
+hist(trees$Height, main="Árvores", ylab="Frequência", xlab="Altura")
+```
+
+
+```{r}
+hist(trees$Height, main="Árvores", ylab="Frequência", xlab="Altura", col = "blue", density = 25, breaks = 20)
+```
+
+
+```{r}
+densidade = density(trees$Height)
+plot(densidade)
+```
+```{r}
+hist(trees$Height, main=NULL, xlab=NULL)
+par(new=TRUE)
+plot(densidade)
+
+```
+```{r}
+plot(trees$Girth, trees$Volume)
+```
+```{r}
+split.screen(figs = c(2,2))
+screen(1)
+plot(trees$Girth)
+screen(2)
+plot(trees$Height)
+close.screen(all=TRUE)
+```
+
+```{r}
+variavel = aggregate(. ~ spray, data = InsectSprays, sum)
+variavel
+```
+```{r}
+barplot(variavel$count, xlab = 'Spray', ylab = 'Quantidade', main = 'Grafico dos insetos',names.arg = variavel$spray)
+```
+
+```{r}
+install.packages("stargazer")
+```
+
