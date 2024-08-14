@@ -1,0 +1,26 @@
+qui quadrado na relaçao de novela (exemplo do curso)
+```{r}
+novela = matrix(c(19,6,43,32), nrow = 2, byrow = T)
+row.names(novela) = c("Masculino", "Feminino")
+colnames(novela) = c("Assiste", "Não assiste")
+novela
+```
+
+Executando Qui quadrado
+```{r}
+chisq.test(novela)
+```
+Como o p-valeu, foi maior que o valor de alfa (0.05), entao a hipotese nula se confirma
+
+abaixo um caso que a hipotese alternativa estaria correta:
+```{r}
+novela = matrix(c(22,3,43,32), nrow = 2, byrow = T)
+row.names(novela) = c("Masculino", "Feminino")
+colnames(novela) = c("Assiste", "Não assiste")
+novela
+```
+
+Ao executar o teste o P-value seria abaixo do valor de alfa, reforçando a hipotese alternativa
+```{r}
+chisq.test(novela)
+```

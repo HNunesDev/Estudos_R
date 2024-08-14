@@ -1,0 +1,16 @@
+A média de acidentes em um dia é de 2, qual a probabilidade de ocorrerem 3 acidentes em um dia.
+```{r}
+dpois(3, lambda = 2)
+```
+3 ou menos
+```{r}
+ppois(3, lambda = 2)
+```
+menos do que 3
+```{r}
+ppois(2, lambda = 2)
+```
+mais do que 3
+```{r}
+ppois(3, lambda = 2, lower.tail = F)
+```
