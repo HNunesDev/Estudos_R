@@ -1,0 +1,12 @@
+salario do cientista 75 a hora. Amostra 9. S=10. Qual a probabilidade de ser menor que 80 a hora? t=1.5, graus de liberdade
+```{r}
+pt(1.5,8)
+```
+Qual a probabilidae de ser maior que 80
+```{r}
+pt(1.5, 8, lower.tail = F)
+```
+Somatoria
+```{r}
+pt(1.5,8) + pt(1.5, 8, lower.tail = F)
+```
