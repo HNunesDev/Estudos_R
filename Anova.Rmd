@@ -1,0 +1,37 @@
+Puxando dados
+```{r}
+df = read.csv("anova.csv", sep = ";")
+df
+```
+Checar através de boxplot como está distribuído as infos
+```{r}
+boxplot(df$Horas ~ df$Remedio)
+```
+(exemplo de analise de um fator)
+Leia se: está colocando as horas conforme o remédio, e para checar se existe evidencia contra a hipotese nula, tem que olhar o Pr(>F) em caso de ser menor 
+```{r}
+an = aov(Horas ~ Remedio, data = df)
+summary(an)
+```
+(exemplo de analise de dois fatores)
+Para ter evidencia contra a hipotese nula o valor de pr tem que ser abaixo de 0,05
+```{r}
+ab = aov(Horas ~ Remedio * Sexo, data = df)
+summary(ab)
+```
+Caso houvesse a contestaçao do valor, teria que gerar o teste de Tukey
+```{r}
+teste_tukey = TukeyHSD(ab)
+teste_tukey
+```
+```{r}
+plot(teste_tukey)
+```
+
+
+
+
+
+
+
+
